@@ -25,7 +25,7 @@ public class 문자열나누기 {
             }
             if (count == diff) {
                 answer++;
-                first = s.charAt(i); //b
+                first = s.charAt(i); //
             }
         }
         System.out.println("answer = " + answer);

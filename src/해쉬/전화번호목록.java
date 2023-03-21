@@ -25,28 +25,34 @@ class 전화번호목록Solution {
         }
         return true;
 
-
         //3.여기까지 없다면 접두어 없다는것
 
     }
 }
 
 class 전화번호목록Solution2 {
+
+    //hashMap으로 풀기
     public boolean solution(String[] phone_book) {
+
         boolean answer = true;
+        //1.hashMap을 만든다
+        HashMap<String,Integer> hashMap = new HashMap<>();
 
-        //1. sort
+        for (int i = 0; i < phone_book.length; i++) {
+            hashMap.put(phone_book[i],1);
+        }
+        System.out.println(hashMap);
 
-        Arrays.sort(phone_book);
-
-//        String[] phone_book = {"119", "97674223", "1195524421"};
-
-        //2.
-        for (int i = 0; i <phone_book.length-1; i++) {
-            if(phone_book[i+1].startsWith(phone_book[i])){
-                return false;
+        //2.모든 전화번호의 접두어가 hashMap에 있는지 확인한다.
+        for (int i = 0; i < phone_book.length ; i++) {
+            for (int j = 0; j < phone_book[i].length() ; j++) {
+                if(hashMap.containsKey(phone_book[i].substring(0,j))){
+                    return false;
+                }
             }
         }
+        //3.여기까지 왔다면 접두어가 없다는 것이다.
         return true;
     }
 }

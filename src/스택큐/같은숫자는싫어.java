@@ -1,10 +1,7 @@
-package LEVEL1;
+package 스택큐;
 
 
 import java.util.*;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Stack;
 
 public class 같은숫자는싫어 {
     public int[] solution(int []arr) {
@@ -44,11 +41,29 @@ public class 같은숫자는싫어 {
 
         return answerList.stream().mapToInt(i->i).toArray();
     }
+    public int[] solution2(int []arr) {
+
+        Stack<Integer> stack = new Stack<>();
+
+        for (int i = 0; i < arr.length; i++) {
+            if(stack.size() !=0 && stack.peek() == arr[i]){
+                continue;
+            }
+            else {
+                stack.push(arr[i]);
+            }
+        }
+        int[] answer = stack.stream().mapToInt(Integer::intValue).toArray();
+        System.out.println(Arrays.toString(answer));
+        return answer;
+    }
+
 
     public static void main(String[] args) {
         같은숫자는싫어 sl = new 같은숫자는싫어();
         int[] arr = {4,4,4,3,3};
-        sl.solution(arr);
+        int[] arr2 ={1,1,3,3,0,1,1};
+        sl.solution2(arr2);
     }
 
 }

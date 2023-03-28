@@ -1,6 +1,5 @@
 package LEVEL1;
 
-import com.sun.tools.internal.ws.wsdl.document.soap.SOAPUse;
 
 public class 소수찾기 {
     public int solution(int n) {

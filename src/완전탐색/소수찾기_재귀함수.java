@@ -14,6 +14,7 @@ public class 소수찾기_재귀함수 {
         int lim = (int)Math.sqrt(num);
 
         // 3.에라토스테네스의 체에 따라 limit까지만 배수 여부를 확인한다.
+        // ("소수가 되는 수의 배수를 지우면 남은 건 소수가 된다") -  특정 범위 내의 모든 소수를 찾으려면 효과적
         for (int i = 2; i <lim ; i++) {
             if(num %i ==0){
                 return false;
@@ -71,3 +72,42 @@ public class 소수찾기_재귀함수 {
 
     }
 }
+
+//public class 에라토스테네스체 {
+//
+//
+//    public boolean[] primeNumber(boolean[] primeNumbers,int n) {
+//
+//        primeNumbers[0] = primeNumbers[1] =false;
+//
+//        for (int i = 2; i < Math.sqrt(n); i++) {
+//            if(!primeNumbers[i]){
+//                for (int j = i*i; j <= n; j+=i) {
+//                    primeNumbers[j] =true;
+//                }
+//            }
+//        }
+//        return primeNumbers;
+//    }
+//
+//    public static void main(String[] args) {
+//        System.out.println("hello");
+//        에라토스테네스체 cnt = new 에라토스테네스체();
+//
+//        int n = 122;
+//
+//        boolean[] primeNumbers = new boolean[n+1];
+//
+//        primeNumbers = cnt.primeNumber(primeNumbers,n);
+//
+//        for (int i = 1; i <= n ; i++) {
+//            if(!primeNumbers[i]){
+//                System.out.println(i);
+//            }
+//        }
+//
+//
+//
+//
+//    }
+//}

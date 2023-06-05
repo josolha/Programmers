@@ -50,7 +50,7 @@ public class 기능개발 {
             }
         }
         System.out.println(result);
-        int[] answer = result.stream().mapToInt(i->i).toArray();;
+        int[] answer = result.stream().mapToInt(i->i).toArray();
 
         return answer;
     }

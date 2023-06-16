@@ -24,6 +24,8 @@ public class P1546_평균구하기 {
             sum = sum+score[i];
         }
 
+//        (double)sum/max*100/count;
+        // 소수점도 필요하기 때문에 변수 조심해야함.
         System.out.println(sum*100.0/max/subjects);
     }
 }

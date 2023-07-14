@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class P1278_미로탐색 {
+public class P2178_미로탐색 {
 
     //아래,오른쪽,위,왼쪽
     static int[] dx = {0, 1, 0,-1};
@@ -57,8 +57,6 @@ public class P1278_미로탐색 {
                         queue.add(new int[] {x,y});  //다음에 방문할 셀의 위치
                     }
                 }
-
-
             }
         }
     }

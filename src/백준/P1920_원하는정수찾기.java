@@ -30,11 +30,15 @@ public class P1920_원하는정수찾기 {
         for (int i = 0; i < N ; i++) {
             A[i] =sc.nextInt();
         }
+
         Arrays.sort(A);
+
         int M = sc.nextInt();
+
         for (int i = 0; i <M; i++) {
             boolean find = false;
             int target = sc.nextInt();
+
             int start = 0;
             int end = A.length -1;
             while(start <= end){

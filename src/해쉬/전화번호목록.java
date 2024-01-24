@@ -23,10 +23,8 @@ class 전화번호목록Solution {
             if(phone_book[i+1].startsWith(phone_book[i]))
                 return false;
         }
-        return true;
-
         //3.여기까지 없다면 접두어 없다는것
-
+        return true;
     }
 }
 
@@ -40,7 +38,7 @@ class 전화번호목록Solution2 {
         HashMap<String,Integer> hashMap = new HashMap<>();
 
         for (int i = 0; i < phone_book.length; i++) {
-            hashMap.put(phone_book[i],1);
+            hashMap.put(phone_book[i],i);
         }
         System.out.println(hashMap);
 

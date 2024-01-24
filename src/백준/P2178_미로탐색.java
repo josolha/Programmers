@@ -50,7 +50,7 @@ public class P2178_미로탐색 {
                 int x = now[0] + dx[k];
                 int y = now[1] + dy[k];
                 if(x>=0 && y>=0 && x<N && y<M){  // 배열을 넘어가면 안되고
-                    if (A[x][y]!= 0 &&! visited[x][y]) { //0이여서 갈수 없거나 기방문한 곳이면 안됌
+                    if (A[x][y]!= 0 && !visited[x][y]) { //0이여서 갈수 없거나 기방문한 곳이면 안됌
                         //이제 갈수 있는 곳이다.
                         visited[x][y] = true;
                         A[x][y] = A[now[0]][now[1]] + 1;// 핵심

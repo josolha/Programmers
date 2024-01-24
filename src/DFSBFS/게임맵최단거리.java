@@ -48,8 +48,6 @@ public class 게임맵최단거리 {
             }
 
         }
-
-
     }
     public static void main(String[] args) {
         게임맵최단거리 게임맵최단거리 = new 게임맵최단거리();

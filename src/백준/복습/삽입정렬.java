@@ -24,11 +24,7 @@ public class 삽입정렬 {
             // 타겟 넘버
             int target = a[i];
 
-            //2
-
             int j = i - 1;
-
-            //0
 
             // 타겟이 이전 원소보다 크기 전 까지 반복
             while (j >= 0 && target < a[j]) {
@@ -38,7 +34,6 @@ public class 삽입정렬 {
 
             a[j + 1] = target;
         }
-
     }
     void insertionSort2(int[] a, int size) {
 

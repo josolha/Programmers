@@ -6,6 +6,7 @@ public class 고속거듭제곱 {
         System.out.println((int)Math.pow(2,3));
     }
 
+
     public static long fastPow(long base, long exponent, long mod) {
         long result = 1;
         base %= mod;

@@ -11,48 +11,52 @@ public class 소수찾기 {
         
         String number = "17";
         System.out.println(sl.solution(number));
-        System.out.println(sl.isPrime(19));
     }
 }
 
 
 class 소수찾기_Solution {
+    int answer = 0;
 
-    Set<Integer> hashSet= new HashSet<>();
+    Set<Integer> hashset = new HashSet<>();
 
     public int solution(String numbers) {
-        int answer = 0;
 
         recursive("",numbers);
 
-        Iterator<Integer> set = hashSet.iterator();
+        Iterator<Integer> set = hashset.iterator();
 
-        while (set.hasNext()){
+
+        while(set.hasNext()){
             int number = set.next();
-            if(isPrime(number)){
-                answer++;
-            }
+           if(isPrime(number)){
+               answer++;
+           }
         }
+
         return answer;
+
     }
-    public void recursive(String comb, String number){
-        if(!comb.equals("")){
-            hashSet.add(Integer.parseInt(comb));
+
+    private void recursive(String s, String numbers) {
+        if(!s.equals("")){
+            hashset.add(Integer.parseInt(s));
         }
-        for (int i = 0; i <number.length() ; i++) {
-            recursive(comb+number.charAt(i),number.substring(0,i)+number.substring(i+1));
+        for (int i = 0; i < numbers.length() ; i++) {
+            recursive(s+numbers.charAt(i),numbers.substring(0,i)+numbers.substring(i+1));
         }
     }
-    public boolean isPrime(int number){
-        if(number <= 2){
+
+    public boolean isPrime(int i) {
+        if(i <= 1){
             return false;
         }
-
-        for (int i = 2; i <= (int)Math.sqrt(number); i++) {
-            if(number%i == 0){
+        for (int j = 2; j <= (int)Math.sqrt(i); j++) {
+            if(i%j ==0){
                 return false;
             }
         }
+
         return true;
     }
 }

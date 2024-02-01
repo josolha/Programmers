@@ -40,7 +40,8 @@ public class P1920_원하는정수찾기 {
             int target = sc.nextInt();
 
             int start = 0;
-            int end = A.length -1;
+            int end = A.length - 1;
+
             while(start <= end){
                 int mid_index = (start+end) /2 ;
                 int mid_value = A[mid_index];

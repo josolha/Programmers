@@ -12,7 +12,10 @@ public class N과M_순열조합 {
         m = 2;
         arr = new int[m];
         visited = new boolean[n + 1];
-        combination(0,1);
+        System.out.println("순열");
+        permutation(0);
+        System.out.println("조합");
+        repeatedCombination(0,1);
     }
     // 순열
     private static void permutation(int cnt) {

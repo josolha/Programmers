@@ -19,7 +19,6 @@ public class 효도음식 {
         visited = new boolean[a];
         combination = new int[a];
 
-
         for (int i = 0; i <a ; i++) {
             arr[i] = scanner.nextInt();
         }

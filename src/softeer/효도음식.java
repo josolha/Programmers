@@ -13,33 +13,34 @@ public class 효도음식 {
             preferences[i] = scanner.nextInt();
         }
 
-        // 접두사 합과 접미사 합을 위한 Kadane 알고리즘 활용
+        // 접두사 최대 합 계산
         int[] prefixMax = new int[n];
-        int[] suffixMax = new int[n];
-        calculateMaxSubarraySum(preferences, prefixMax, suffixMax);
-
-        // 최대 만족도 계산
-        int maxSatisfaction = Integer.MIN_VALUE;
-        for (int i = 1; i < n - 1; i++) {
-            maxSatisfaction = Math.max(maxSatisfaction, prefixMax[i] + suffixMax[i + 1]);
-        }
-
-        System.out.println(maxSatisfaction);
-    }
-
-    private static void calculateMaxSubarraySum(int[] preferences, int[] prefixMax, int[] suffixMax) {
         int currentMax = preferences[0];
-        prefixMax[0] = preferences[0];
-        for (int i = 1; i < preferences.length; i++) {
+        prefixMax[0] = currentMax;
+        System.out.println("prefixMax = " + Arrays.toString(prefixMax));
+        System.out.println("currentMax = " + currentMax);
+
+        for (int i = 1; i < n; i++) {
             currentMax = Math.max(preferences[i], currentMax + preferences[i]);
             prefixMax[i] = Math.max(prefixMax[i - 1], currentMax);
         }
 
-        currentMax = preferences[preferences.length - 1];
-        suffixMax[preferences.length - 1] = preferences[preferences.length - 1];
-        for (int i = preferences.length - 2; i >= 0; i--) {
+        // 접미사 최대 합 계산
+        int[] suffixMax = new int[n];
+        currentMax = preferences[n - 1];
+        suffixMax[n - 1] = currentMax;
+
+        for (int i = n - 2; i >= 0; i--) {
             currentMax = Math.max(preferences[i], currentMax + preferences[i]);
             suffixMax[i] = Math.max(suffixMax[i + 1], currentMax);
         }
+
+        // 두 요리에 대한 최대 만족도 계산
+        int maxSatisfaction = Integer.MIN_VALUE;
+        for (int i = 1; i < n - 1; i++) {
+            maxSatisfaction = Math.max(maxSatisfaction, prefixMax[i-1] + suffixMax[i + 1]);
+        }
+
+        System.out.println(maxSatisfaction);
     }
 }

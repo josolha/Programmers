@@ -28,6 +28,7 @@ public class 효도음식 {
         // 접미사 최대 합 계산
         int[] suffixMax = new int[n];
         currentMax = preferences[n - 1];
+        System.out.println("currentMax = " + currentMax);
         suffixMax[n - 1] = currentMax;
 
         for (int i = n - 2; i >= 0; i--) {

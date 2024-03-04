@@ -15,7 +15,6 @@ public class 효도음식2 {
 
         int[] preMaxArr = new int[input];
         preMaxArr[0] = arr[0];
-
         int currentMax = arr[0];
         for (int i = 1; i < input; i++) {
             currentMax = Math.max(arr[i], currentMax + arr[i]);

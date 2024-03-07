@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class 삽입정렬 {
 
-    static int[] arr = {3, 2, 5, 4, 7,2,6};
+    static int[] arr = {3, 2, 5, 4, 7, 2, 6};
     static int size = arr.length;
 
     public static void main(String[] args) {
@@ -35,6 +35,18 @@ public class 삽입정렬 {
             a[j + 1] = target;
         }
     }
+
+    void insert(int[] a, int size){
+        for (int i = 1; i <size ; i++) {
+            int target = a[i];
+            int j = i-1;
+            while(j>=0 && target <a[j]){
+                a[j+1] = a[j];
+                j--;
+            }
+            a[j+1] = target;
+        }
+    }
     void insertionSort2(int[] a, int size) {
 
         for(int i = 1; i < size; i++) {
@@ -54,4 +66,5 @@ public class 삽입정렬 {
             a[location] = target;
         }
     }
+
 }

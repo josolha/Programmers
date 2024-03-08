@@ -19,5 +19,6 @@ public class P23971_ZOAC4 {
         Long hi = (long) Math.ceil((double) W / (M + 1));
         Long verti = (long) Math.ceil((double) H / (N + 1));
         System.out.println(hi * verti);
+
     }
 }

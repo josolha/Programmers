@@ -5,9 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class P8979_올림픽 {
@@ -19,6 +16,7 @@ public class P8979_올림픽 {
         medal[] countries = new medal[line];
         int resultCountry = Integer.parseInt(st.nextToken());
 
+
         for (int i = 0; i < line; i++) {
             st = new StringTokenizer(br.readLine());
             int name = Integer.parseInt(st.nextToken());
@@ -27,8 +25,20 @@ public class P8979_올림픽 {
             int bronze = Integer.parseInt(st.nextToken());
             countries[i] = new medal(name, gold, silver, bronze);
         }
+
+
+        //위에 코드 이렇게 줄일수있음.
+//        for (int i = 0; i < N; i++) {
+//            String[] input = br.readLine().split(" ");
+//            for (int j = 0; j < 4; j++) {
+//                countries[i][j] = Integer.parseInt(input[j]);
+//            }
+//        }
+//
+
+
         medal[] origin = countries.clone();
-        Arrays.sort(countries, new Comparator<medal>() {
+        Arrays.sort(origin, new Comparator<medal>() {
             @Override
             public int compare(medal o1, medal o2) {
                 if (o1.getGold() != o2.getGold()) {
@@ -40,34 +50,37 @@ public class P8979_올림픽 {
                 }
             }
         });
-        int[] rank = new int[origin.length];
         for (int i = 0; i < origin.length; i++) {
             for (int j = 0; j < origin.length; j++) {
-                if (origin[i].equals(countries[j])) {
-                    rank[i] = j+1;
-                    //countries[i].setRank(j + 1);
+                if (countries[i].equals(origin[j])) {
+                    countries[i].setRank(j + 1);
+                    break;
                 }
             }
         }
+        System.out.println("=========원래의========");
         for (medal country : countries) {
             System.out.println(
                     country.getName() + ": Gold " + country.getGold() + ", Silver " + country.getSilver() + ", Bronze "
-                            + country.getBronze()+ ", Rank " +country.getRank());
+                            + country.getBronze() + ", Rank " + country.getRank());
+        }
+        System.out.println("=========정렬된========");
+        for (medal country : origin) {
+            System.out.println(
+                    country.getName() + ": Gold " + country.getGold() + ", Silver " + country.getSilver() + ", Bronze "
+                            + country.getBronze() + ", Rank " + country.getRank());
         }
 
-//        for (medal country : countries) {
-//            if (country.getName() == resultCountry) {
-//                System.out.println(country.getRank());
-//                break;
-//            }
-//        }
-
-           // System.out.println(rank[resultCountry - 1]);
-
-            System.out.println(Arrays.toString(rank));
+        for (medal country : countries) {
+            if (country.getName() == resultCountry) {
+                System.out.println(country.getRank());
+                break;
+            }
+        }
 
     }
 }
+
 class medal {
     private int name;
     private int gold;
@@ -116,6 +129,7 @@ class medal {
     public void setRank(int rank) {
         this.rank = rank;
     }
+
     public int getRank() {
         return rank;
     }

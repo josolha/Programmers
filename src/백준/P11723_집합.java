@@ -106,6 +106,5 @@ public class P11723_집합 {
             arr[i] =false;
         }
         //Arrays.fill(arr, false); 줄이기 가능
-
     }
 }

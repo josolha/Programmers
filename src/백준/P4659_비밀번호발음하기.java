@@ -14,8 +14,7 @@ public class P4659_비밀번호발음하기 {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 
         while(true) {
-            StringTokenizer st = new StringTokenizer(bf.readLine());
-            String input = st.nextToken();
+            String input = bf.readLine();
 
             if(input.equals("end")){
                 break;

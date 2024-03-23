@@ -25,8 +25,6 @@ public class P8979_올림픽 {
             int bronze = Integer.parseInt(st.nextToken());
             countries[i] = new medal(name, gold, silver, bronze);
         }
-
-
         //위에 코드 이렇게 줄일수있음.
 //        for (int i = 0; i < N; i++) {
 //            String[] input = br.readLine().split(" ");
@@ -35,8 +33,6 @@ public class P8979_올림픽 {
 //            }
 //        }
 //
-
-
         medal[] origin = countries.clone();
         Arrays.sort(origin, new Comparator<medal>() {
             @Override
@@ -50,6 +46,8 @@ public class P8979_올림픽 {
                 }
             }
         });
+
+        //todo 이렇게 말고 스트링 출력한 값 비교로 랭크 정해보기
         for (int i = 0; i < origin.length; i++) {
             for (int j = 0; j < origin.length; j++) {
                 if (countries[i].equals(origin[j])) {
@@ -58,6 +56,7 @@ public class P8979_올림픽 {
                 }
             }
         }
+
         System.out.println("=========원래의========");
         for (medal country : countries) {
             System.out.println(

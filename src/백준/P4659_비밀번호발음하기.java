@@ -33,6 +33,7 @@ public class P4659_비밀번호발음하기 {
         for (int i = 0; i <input.length() ; i++) {
                 if(aeiou.indexOf(input.charAt(i))!=-1){
                     return true;
+
                 }
         }
         return false;

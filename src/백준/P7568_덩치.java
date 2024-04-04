@@ -21,7 +21,7 @@ public class P7568_덩치 {
 
         int numCnt = Integer.parseInt(st.nextToken());
 
-        Map<Integer,int[]>hashMap = new HashMap<>();
+        Map<Integer,int[]> hashMap = new HashMap<>();
         int[] rank = new int[numCnt];
 
         for (int i = 0; i < numCnt; i++) {

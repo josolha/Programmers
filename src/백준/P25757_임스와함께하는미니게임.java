@@ -13,6 +13,7 @@ import java.util.StringTokenizer;
 public class P25757_임스와함께하는미니게임 {
     
     static String[] names;
+    static Set set = new HashSet<String>();
 
     public static void main(String[] args) throws IOException {
 
@@ -30,6 +31,10 @@ public class P25757_임스와함께하는미니게임 {
             names[i] = st.nextToken();
         }
 
+        for (String name: names) {
+            set.add(name);
+        }
+
        // System.out.println("Arrays.toString(names) = " + Arrays.toString(names));
 
         switch (gameType){
@@ -45,27 +50,12 @@ public class P25757_임스와함께하는미니게임 {
         }
     }
     static int yGame(){
-        Set set = new HashSet<String>();
-        for (String name: names) {
-            set.add(name);
-        }
         return set.size();
     }
     static int fGame(){
-        Set set = new HashSet<String>();
-        for (String name: names) {
-            set.add(name);
-        }
         return set.size() / 2;
     }
     static int oGame(){
-        Set set = new HashSet<String>();
-        for (String name: names) {
-            set.add(name);
-        }
         return set.size() / 3;
     }
-
-
-
 }

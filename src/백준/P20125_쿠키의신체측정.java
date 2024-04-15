@@ -33,8 +33,10 @@ public class P20125_쿠키의신체측정 {
         int leftHandSize = leftHand(heartIndex);
         int rightHandSize =rightHand(heartIndex);
         int bodySize = body(heartIndex);
+
         int[] LeftLegStartIndex = new int[]{heartIndex[0]+bodySize+1,heartIndex[1]-1};
         int leftLegSize = leg(LeftLegStartIndex);
+
         int[] RightLegStartIndex =new int[]{heartIndex[0]+bodySize+1,heartIndex[1]+1};
         int rightLegSize = leg(RightLegStartIndex);
 

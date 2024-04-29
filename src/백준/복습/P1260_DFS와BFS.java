@@ -5,7 +5,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class P1260_DFS와BFS {
@@ -39,7 +42,14 @@ public class P1260_DFS와BFS {
             lists[end].add(start);
         }
 
+        for (int i = 1; i < lists.length ; i++) {
+            Collections.sort(lists[i]);
+        }
+
         System.out.println(Arrays.toString(lists));
+
+
+
         DFS(startIndex);
 
     }
@@ -54,5 +64,12 @@ public class P1260_DFS와BFS {
                 DFS(nums);
             }
         }
+    }
+    static public void BFS(int startNum){
+        Queue<Integer> queue = new LinkedList<>();
+        queue.offer(startNum);
+
+
+
     }
 }

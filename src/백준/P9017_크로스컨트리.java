@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,58 +16,79 @@ public class P9017_크로스컨트리 {
 
     static Map<Integer,List<Integer>> teamScore;
 
+    static Map<Integer,Integer> teamCnt;
+
+    static int[] result;
+
+    static List<Integer> highList;
+
+
     public static void main(String[] args) throws IOException {
-        //한 팀은 여섯 명의 선수로 구성되며,
-        //팀 점수는 상위 네 명의 주자의 점수를 합하여 계산한다.
-        //점수는 자격을 갖춘 팀의 주자들에게만 주어지며,
-        //결승점을 통과한 순서대로 점수를 받는다.
-        //이 점수를 더하여 가장 낮은 점수를 얻는 팀이 우승을 하게 된다.
-        //여섯 명의 주자가 참가하지 못한 팀은 점수 계산에서 제외된다.
-        //동점의 경우에는 다섯 번째 주자가 가장 빨리 들어온 팀이 우승하게 된다.
-
-
-        //1.팀 번호로 배열이 들어온다.
-        //2.여섯명이 안되면 탈락한다.
-        //3.여섯명이 되면 상위 4명 점수만 합산, 동점일 때 5번째 주자 포함 계산
-        //4.가장 낮은 점수가 우승
-
-
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int testCnt = Integer.parseInt(br.readLine());
-
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int testCnt = Integer.parseInt(st.nextToken());
+        result = new int[testCnt];
         for (int i = 0; i <testCnt ; i++) {
-            int totalMember = Integer.parseInt(br.readLine());
-            StringTokenizer st = new StringTokenizer(br.readLine());
+            teamCnt = new HashMap<>();
 
-            teamScore = new HashMap<>();
-            //1.팀 번호로 배열이 들어온다.
+            st = new StringTokenizer(br.readLine());
+            int totalMember = Integer.parseInt(st.nextToken());
+            scoreList = new int[totalMember];
+            st = new StringTokenizer(br.readLine());
+
             for (int j = 0; j < totalMember ; j++) {
                 int score = Integer.parseInt(st.nextToken());
-                teamScore.putIfAbsent(score,new ArrayList<>());
-                teamScore.get(score).add(j+1);
-            }
-            System.out.println(teamScore);
+                scoreList[j] = score;
+                teamCnt.put(score,teamCnt.getOrDefault(score,0)+1);
 
-            int maxScore =0;
-            int winner =0;
-
-            for (Integer key: teamScore.keySet()) {
-                //2.여섯명이 안되면 탈락한다.
-                if(teamScore.get(key).size() < 6){
-                    continue;
-                }
-                System.out.println(key);
-                int sum =0;
-                for (int j = 0; j < 4 ; j++) {
-                    sum += teamScore.get(key).get(j);
-                }
-                System.out.println(sum);
             }
+            //System.out.println("scoreList = " + Arrays.toString(scoreList));
+           // System.out.println("teamCnt = " + teamCnt);
+            highList = new ArrayList<>();
+            teamScore = new HashMap<>();
+            for (Integer integer : teamCnt.keySet()) {
+                if(teamCnt.get(integer) >= 6){
+                    highList.add(integer);
+                }
+            }
+           // System.out.println("highList ="+highList);
+            int score = 1;
+            for (int j = 0; j <scoreList.length ; j++) {
+                for (int k = 0; k < highList.size() ; k++) {
+                    if(scoreList[j] == highList.get(k)){
+                        teamScore.putIfAbsent(scoreList[j], new ArrayList<>());
+                        teamScore.get(scoreList[j]).add(score++);
+                    }
+                }
+            }
+
+            //System.out.println("teamScore = " + teamScore);
+
+            int minValue = Integer.MAX_VALUE;
+            int minTeam = 0;
+            int fifthScoreMin = Integer.MAX_VALUE; // 5번째 선수의 최소 점수를 저장할 변수
+
+            for (Integer integer : teamScore.keySet()) {
+                //System.out.println("integer = " + integer);
+                int tempValue = 0;
+                for (int j = 0; j <4 ; j++) {
+                    //System.out.println("teamScore.get(integer).get(j) = " + teamScore.get(integer).get(j));
+                    tempValue += teamScore.get(integer).get(j);
+                }
+                int fifthScore = teamScore.get(integer).get(4); // 5번째 선수의 점수
+                // System.out.println("tempValue = " + tempValue);
+                if (tempValue < minValue || (tempValue == minValue && fifthScore < fifthScoreMin)) {
+                    minValue = tempValue;
+                    minTeam = integer;
+                    fifthScoreMin = fifthScore; // 5번째 선수의 점수를 업데이트
+                }
+            }
+            result[i] = minTeam;
+        }
+        for (int i : result) {
+            System.out.println(i);
         }
 
-        //3.여섯명이 되면 상위 4명 점수만 합산, 동점일 때 5번째 주자 포함 계산
-
-        //4.가장 낮은 점수가 우숭
 
     }
 

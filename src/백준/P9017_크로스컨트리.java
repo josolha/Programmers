@@ -42,8 +42,8 @@ public class P9017_크로스컨트리 {
                 teamCnt.put(score,teamCnt.getOrDefault(score,0)+1);
 
             }
-            //System.out.println("scoreList = " + Arrays.toString(scoreList));
-           // System.out.println("teamCnt = " + teamCnt);
+            System.out.println("scoreList = " + Arrays.toString(scoreList));
+            System.out.println("teamCnt = " + teamCnt);
             highList = new ArrayList<>();
             teamScore = new HashMap<>();
             for (Integer integer : teamCnt.keySet()) {
@@ -51,7 +51,7 @@ public class P9017_크로스컨트리 {
                     highList.add(integer);
                 }
             }
-           // System.out.println("highList ="+highList);
+           System.out.println("highList ="+highList);
             int score = 1;
             for (int j = 0; j <scoreList.length ; j++) {
                 for (int k = 0; k < highList.size() ; k++) {
@@ -62,7 +62,7 @@ public class P9017_크로스컨트리 {
                 }
             }
 
-            //System.out.println("teamScore = " + teamScore);
+            System.out.println("teamScore = " + teamScore);
 
             int minValue = Integer.MAX_VALUE;
             int minTeam = 0;

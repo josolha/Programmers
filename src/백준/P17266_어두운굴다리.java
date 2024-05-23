@@ -22,7 +22,6 @@ public class P17266_어두운굴다리 {
         for (int i = 0; i <lightIndex.length-1 ; i++) {
             maxMiddle = Math.max(maxMiddle,lightIndex[i+1] - lightIndex[i]);
         }
-
         
         int result =  Math.max((int)Math.ceil((double)maxMiddle/2),Math.max(left,right));
         System.out.println("result = " + result);

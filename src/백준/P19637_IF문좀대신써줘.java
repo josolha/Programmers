@@ -45,5 +45,7 @@ public class P19637_IF문좀대신써줘 {
         }
         System.out.print(sb.toString());
 
+        //이진 탐색으로 풀어야함
+
     }
 }
